@@ -42,6 +42,10 @@
     justify-content: center;
 }
 
+.akun:hover{
+    background: #42a4ff;
+}
+
 .search{
     width: 130px;
     height: 35px;
@@ -56,4 +60,8 @@
 
 button{
     border: none;
+}
+
+.item:hover{
+    color: #0078E7;
 }

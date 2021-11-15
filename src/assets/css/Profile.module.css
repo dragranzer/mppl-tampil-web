@@ -1,0 +1,108 @@
+.body{
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    height: 800px;
+    width: 50%;
+    background: #E2EFDB;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+}
+
+.container img{
+    width: 100%;
+    height: auto;
+}
+
+.data{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: -20%;
+    margin-bottom: 3%;
+}
+
+.profImg{
+    height: 40%;
+    width: 30%;
+    /* background-color: aqua; */
+    border-radius: 50%;
+    margin-bottom: 5%;
+    /* margin-top: -20%; */
+}
+
+.profImg img{
+    border-radius: 50%;
+    
+}
+
+.content{
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+    font-size: 18px;
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+.data input{
+    width: 59%;
+}
+
+.leftItem{
+    width: 30%;
+    text-align: right;
+}
+
+.rightItem{
+    width: 60%;
+}
+
+.validation{
+    width: 90%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 5%;
+    /* background-color: aqua; */
+}
+
+.submitBtn{
+    width: 15%;
+    height: 35px;
+    background: #0078E7;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back{
+    text-decoration-line: underline;
+    color: #0078E7;
+    font-weight: bold;
+}
+
+.btnPic{
+    border: 1px solid #0078E7;
+    border-radius: 20px;
+    background: White;
+    color: #0078E7;
+    width: 12%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    
+}

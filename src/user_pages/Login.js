@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Axios from 'axios';
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import NavbarLogin from '../components/NavbarLogin';
 import Footer from '../components/Footer';
 import styles from '../assets/css/Login.module.css';
@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 
 function Login() {
     let history = useHistory();
-    const [Data, setData] = useState();
+    // const [Data, setData] = useState();
     const [user, setUser] = useState({
         name: "",
         password: "",
