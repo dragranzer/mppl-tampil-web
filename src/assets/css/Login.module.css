@@ -1,0 +1,90 @@
+.container{
+    background-color: #F5F6FA;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    height: 400px;
+    width: 60%;
+    /* background-color: aquamarine; */
+    /* margin: auto; */
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.item{
+    /* flex-grow: 1; */
+    /* background-color: bisque; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.title{
+    text-align: center;
+}
+
+input{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    /* margin-left: 15%; */
+    width: 350px;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    /* position: absolute; */
+}
+
+img{
+    width: 530px;
+    height: 400px;
+}
+
+.caption{
+    font-size: 20px;
+}
+
+.akun{
+    width: 130px;
+    height: 35px;
+    background: #0078E7;
+    border-radius: 50px;
+    text-align: center;
+    /* font-family: Poppins; */
+    font-style: normal;
+    font-weight: bold;
+    color: #fff;
+    /* padding-top: auto;
+    padding-bottom: auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signup{
+    
+    color: #0078E7;
+}
+
+.admin{
+    margin-top: 20px;
+    color: #E14E53;
+    font-weight: bold;
+    text-align: center;
+}
