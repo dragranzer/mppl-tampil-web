@@ -88,6 +88,10 @@ function Login() {
             // e.preventDefault();
         }
     }
+    const handleLoginsementara = (e) => {
+        // console.log(user);
+        history.push("/home");
+    }
 
     const handleAdmin = (e) => {
         // console.log(user);
@@ -126,7 +130,7 @@ function Login() {
                                 <p onClick={handleDaftar}>Daftar</p>
                                 <p onClick={handleForget}>Lupa Password?</p>
                             </div>
-                            <div className={styles.akun} onClick={handleSubmit}>
+                            <div className={styles.akun} onClick={handleLoginsementara}>
                                 <p>Login</p>
                             </div>
                         </div>
