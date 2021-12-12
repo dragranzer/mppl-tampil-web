@@ -12,7 +12,7 @@ function Profile() {
     const [profile, setProfile] = useState();
     const [password, setPassword] = useState();
     // console.log(token)
-    const URL = `http://47.254.198.205/api/users`
+    const URL = `http://47.254.198.205/api/users?append=large_image`
     useEffect(() =>  {
         if(token){
             const getData = async () => {
@@ -72,11 +72,15 @@ function Profile() {
     const updateUser = () =>{
         // const URLUpdate = `http://47.254.198.205/api/users`
         const getData = async () => {
-            Axios.post(URL, { headers: {"Authorization" : `Bearer ${token}`}, 
-                name:profile.name, email:profile.email, phone_number:profile.phone_number , password:password, _method:"PATCH"
+            console.log("token sasasa",token)
+            Axios.post(URL, { 
+                headers: {"Authorization" : `Bearer ${token}`}, 
+                // _method:"PATCH"
+                name:profile.name, email:profile.email, phone_number:profile.phone_number , password:password, _method:"PUT"
             })
             .then(res => {
             console.log(res);
+            
             // setProfile(res.data.data);
             if(res.data["data"].token){
                 console.log("berhasil")
@@ -91,6 +95,7 @@ function Profile() {
                     console.log(error.response.data);
                     console.log(error.response.status);
                     console.log(error.response.headers);
+                    console.log("token", token)
                 } else if (error.request) {
                     console.log("*************************")
         
@@ -119,7 +124,7 @@ function Profile() {
                     <img src={headImg} alt="" />
                     <div className={styles.data}>
                         <div className={styles.profImg}>
-                            <img src={profilePic} alt="" />
+                            <img src={profile ? profile.large_image : profilePic} alt="" />
                         </div>
                         <div className={styles.btnPic}>
                             Pilih Foto

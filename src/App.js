@@ -9,6 +9,7 @@ import LupaPassword from './user_pages/LupaPassword';
 import PermintaanKolaborasi from './user_pages/PermintaanKolaborasi';
 import ListWebinar from './user_pages/ListWebinar';
 import DetailEvent from './user_pages/DetailEvent';
+import EventSaya from './user_pages/EventSaya';
 
 import NotFound from './user_pages/NotFound';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -35,6 +36,7 @@ function App() {
                 <Route exact path="/collab" render={() => <PermintaanKolaborasi />}/>
                 <Route exact path="/events" render={() => <ListWebinar />}/>
                 <Route exact path="/events/:id" render={() => <DetailEvent />}/>
+                <Route exact path="/eventsaya" render={() => <EventSaya />}/>
                 <Route exact path="*" render={() => <NotFound />}/>
               </Switch>
               </>
