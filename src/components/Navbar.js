@@ -14,6 +14,9 @@ function Navbar() {
     const handleCollab = async (e) => {
         history.push("/collab");
     }
+    const handleCari = async (e) => {
+        history.push("/events");
+    }
     return (
         <div className={styles.header}>
             <div className={styles.Logo}>Logo</div>
@@ -24,7 +27,7 @@ function Navbar() {
                
             </div>
             <div className={styles.method}>
-                <div className={styles.item}>Cari Webinar</div>
+                <div className={styles.item} onClick={handleCari}>Cari Webinar</div>
                 <div className={styles.akun} onClick={handleProf}>Akun</div>
             </div>
         </div>

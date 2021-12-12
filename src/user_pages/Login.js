@@ -6,9 +6,12 @@ import Footer from '../components/Footer';
 import styles from '../assets/css/Login.module.css';
 import sideimg from '../assets/img/Login-img.png';
 import swal from 'sweetalert';
+import { useDispatch } from 'react-redux';
+import { login } from '../store/TokenSlice';
 
 function Login() {
     let history = useHistory();
+    const dispatch = useDispatch()
     // const [Data, setData] = useState();
     const [user, setUser] = useState({
         name: "",
@@ -46,8 +49,9 @@ function Login() {
                 password: user.password,
             })
         .then(res => {
-          console.log(res);
-          console.log(res.data);
+        //   console.log(res);
+          console.log(res.data.data.token);
+          dispatch(login(res.data.data.token))
           if(res.data["data"].token){
               console.log("berhasil")
               isTrue = true;
@@ -78,6 +82,8 @@ function Login() {
         })
 
         if(isTrue){
+            console.log()
+            // dispatch(login(res))
             history.push("/home");
         }else{
             return swal({
@@ -130,7 +136,7 @@ function Login() {
                                 <p onClick={handleDaftar}>Daftar</p>
                                 <p onClick={handleForget}>Lupa Password?</p>
                             </div>
-                            <div className={styles.akun} onClick={handleLoginsementara}>
+                            <div className={styles.akun} onClick={handleSubmit}>
                                 <p>Login</p>
                             </div>
                         </div>
