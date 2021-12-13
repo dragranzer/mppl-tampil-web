@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import styles from '../assets/css/Webinar.module.css';
 import {useHistory} from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
 
 const Webinar = ({id,title, type, price, participants, start_at, end_at, category_id, status, image}) => {
     // console.log(title)
@@ -24,8 +25,8 @@ const Webinar = ({id,title, type, price, participants, start_at, end_at, categor
             <div className={styles.content} >
         
                 <img src={image} alt="" />
-                <div>
-                    Title : {title}
+                <div className={styles.title}>
+                    {title}
                 </div>
                 <div>
                     Type : {type}
@@ -44,16 +45,21 @@ const Webinar = ({id,title, type, price, participants, start_at, end_at, categor
                         // kategori.data.data[0].name
                     }
                 </div>
-                <div>
-                    Participants : {participants}
-                </div>
-                <div>
-                    Start At : {start_at}
-                </div>
-                <div>
+                
+                
+                {/* <div>
                     End At : {end_at}
+                </div> */}
+            </div>
+            <div className={styles.startPart}>
+                <div>
+                    <FaIcons.FaCalendarAlt size={14}/> {start_at}
+                </div>
+                <div>
+                    <FaIcons.FaUserAlt size={14}/> {participants} Pendaftar
                 </div>
             </div>
+            
         </div>
     )
 }

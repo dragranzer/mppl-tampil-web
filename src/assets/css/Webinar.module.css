@@ -1,5 +1,14 @@
 .itemWebinar{
-    height: 400px;
+    height: 430px;
+    width: 23%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    padding-top: 30px;
+}
+
+.itemWebinarSaya{
+    height: 430px;
     width: 300px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -9,6 +18,7 @@
 
 .content{
     width: 80%;
+    height: 380px;
     /* background-color: blue; */
     margin: auto;
 }
@@ -20,4 +30,36 @@ img{
 
 .itemWebinar:hover{
     background: rgb(99, 99, 240);
+}
+
+.batalkanDaftar{
+    width: 70%;
+    height: 30px;
+    margin: auto;
+    border-radius: 50px;
+    background: #FF0D0D;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.batalkanDaftar:hover{
+    background: #ff7878;
+}
+
+img{
+    border-radius:40px;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+}
+
+.startPart{
+    display: flex;
+    justify-content: space-evenly;
 }

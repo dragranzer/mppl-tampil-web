@@ -11,6 +11,7 @@ function DetailEvent() {
     const { id } = useParams();
     const [webinar, setWebinar] = useState();
     const [terdaftar, setTerdaftar] = useState(false);
+    const [image, setImage] = useState();
     const token = useSelector((state) => state.token.token)
     // console.log(id)
     const URL = "http://47.254.198.205/api/webinars/"+id;
@@ -21,7 +22,57 @@ function DetailEvent() {
             console.log(res)
         }
         getData();
-        console.log(webinar)
+        // console.log(webinar)
+    },[]);
+    const URL2 = "http://47.254.198.205/api/webinars/"+id+"?append=large_image";
+    useEffect(() =>  {
+        const getData = async () => {
+            const res = await Axios.get(URL2)
+            setImage(res.data.data.large_image)
+            console.log(res.data.data.large_image)
+        }
+        getData();
+    },[]);
+    const URLCek = "http://47.254.198.205/api/user_webinars/"+id
+    useEffect(() =>  {
+        const cekData = async () => {
+            Axios.get(URLCek,
+            {   
+                headers: {"Authorization" : `Bearer ${token}`},
+            })
+        .then(res => {
+          console.log(res);
+          console.log(res.data.data);
+          setTerdaftar(true);
+        }).catch(error => {
+            // this.setError()
+            console.log(error)
+            if (error.response) {
+                console.log("--------------------------------------------------")
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                if(error.response.status === 422){
+                    
+                }
+                console.log(error.response.headers);
+            } else if (error.request) {
+                console.log("*************************")
+
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+            } else {
+                console.log("++++++++++++++++++++++++")
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        })
+        }
+        cekData();
     },[]);
     const URLDaftar = "http://47.254.198.205/api/user_webinars"
     const daftar = () => {
@@ -69,6 +120,14 @@ function DetailEvent() {
                 <div className={styles.content}>
                     <div className={styles.rightBox}>
                         {
+                            image ? 
+                            <div className={styles.webinarImg}>
+                                <img src={image} alt="" />
+                            </div>
+                            :
+                            <></>
+                        }
+                        {
                             webinar ? 
                                 <div>
                                     {console.log(webinar.data.data)}
@@ -76,8 +135,8 @@ function DetailEvent() {
                                         {webinar.data.data.title}
                                     </div>
                                     <div>
-                                        {/* <div dangerouslySetInnerHTML={{ __html: webinar.data.data.description }} /> */}
-                                        {webinar.data.data.description}
+                                        <div dangerouslySetInnerHTML={{ __html: webinar.data.data.description }} />
+                                        {/* {webinar.data.data.description} */}
                                     </div>
                                 </div>
                             :

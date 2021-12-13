@@ -6,8 +6,10 @@ import headImg from '../assets/img/Rectangle 24.png';
 import profilePic from '../assets/img/blank-prof.jpg';
 import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
+import {useHistory} from "react-router-dom";
 
 function Profile() {
+    let history = useHistory();
     const token = useSelector((state) => state.token.token)
     const [profile, setProfile] = useState();
     const [password, setPassword] = useState();
@@ -166,7 +168,7 @@ function Profile() {
                         
                     </div>
                     <div className={styles.validation}>
-                        <div className={styles.back}>
+                        <div className={styles.back} onClick={() => history.goBack()}>
                             Kembali
                         </div>
                         <div className={styles.submitBtn} onClick={updateUser}>

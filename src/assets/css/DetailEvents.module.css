@@ -2,24 +2,26 @@
     background: #F5F6FA;
 }
 .content{
-    width: 60%;
+    width: 80%;
+    min-height: 900px;
     margin: auto;
     padding-top: 40px;
     margin-top: 2px;
+    padding-bottom: 40px;
     /* background-color: red; */
     display: flex;
     justify-content: space-evenly;
 }
 
 .rightBox{
-    width: 60%;
+    width: 50%;
     background: #E2EFDB;
-    
+    padding: 40px;
 }
 
 .leftBox{
-    width: 30%;
-    
+    width: 25%;
+    /* height: 1000px; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -65,6 +67,7 @@
 
 .info{
     background: #FFFFFF;
+    height: 550px;
 }
 
 .infoTitle{
@@ -88,4 +91,8 @@
 .afterDaftar{
     font-weight: normal;
     font-size: 14px;
+}
+
+.webinarImg img{
+    border-radius: 60px;
 }

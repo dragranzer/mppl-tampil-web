@@ -38,6 +38,10 @@
     border-radius: 50px;
 }
 
+.eventSayaBtn:hover{
+    background-color: rgb(138, 137, 137);
+}
+
 .eventSayaBtnkanan{
     color: #F5F6FA;
     width: 15%;
@@ -49,14 +53,23 @@
     border-radius: 50px;
 }
 
+.eventSayaBtnkanan:hover{
+    background-color: #ff8686;
+}
+
 .cariEvent{
     width: 80%;
-    height: 300px;
+    height: 220px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     margin: auto;
     margin-top: 20px;
+    padding-top: 20px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
 }
 
 .itemFilter{
@@ -88,7 +101,9 @@
 }
 
 .openBar{
-    /* width: 18%; */
+    width: 16%;
+    position: absolute;
+    background: #FFFFFF;
     border: 1px solid;
     border-radius: 10px;
     display: flex;
@@ -107,8 +122,10 @@
 }
 
 .webinarBox{
-    margin-top: 20px;
+    margin: auto;
+    margin-top: 40px;
     padding-bottom: 20px;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
