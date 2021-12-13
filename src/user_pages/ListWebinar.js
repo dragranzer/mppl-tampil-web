@@ -11,8 +11,10 @@ import { StatusEventData } from "../components/StatusEventData";
 import { PartnerEventData } from "../components/PartnerEventData";
 import { UrutBerdasarkanData } from "../components/UrutBerdasarkanData";
 import Webinar from '../components/Webinar';
+import {useHistory} from "react-router-dom";
 
 function ListWebinar() {
+    let history = useHistory();
     const [filter, setFilter] = useState({
         kategori:"",
         tipe:"",
@@ -112,6 +114,9 @@ function ListWebinar() {
     const showUrutbar = () => {
         setUrutbar(!urutbar)
     };
+    const eventSayaRedirect = () => {
+        history.push("/eventsaya")
+    };
     return (
         <div>
             <Navbar />
@@ -125,7 +130,7 @@ function ListWebinar() {
                         <FaIcons.FaCalendarAlt size={60}/>
                         <p>Events</p>
                     </div>
-                    <div className={styles.eventSayaBtn}>
+                    <div className={styles.eventSayaBtn} onClick={eventSayaRedirect}>
                         Event Saya
                     </div>
                 </div>

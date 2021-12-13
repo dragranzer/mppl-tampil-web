@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {useParams} from "react-router-dom";
 import Axios from 'axios';
 import Navbar from '../components/Navbar';
@@ -10,6 +11,7 @@ function DetailEvent() {
     const { id } = useParams();
     const [webinar, setWebinar] = useState();
     const [terdaftar, setTerdaftar] = useState(false);
+    const token = useSelector((state) => state.token.token)
     // console.log(id)
     const URL = "http://47.254.198.205/api/webinars/"+id;
     useEffect(() =>  {
@@ -21,7 +23,43 @@ function DetailEvent() {
         getData();
         console.log(webinar)
     },[]);
+    const URLDaftar = "http://47.254.198.205/api/user_webinars"
     const daftar = () => {
+        console.log(token)
+        Axios.post(URLDaftar, {webinar_id:id, payment_method:"transfer"},
+            {   
+                headers: {"Authorization" : `Bearer ${token}`},
+            })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        }).catch(error => {
+            // this.setError()
+            console.log(error)
+            if (error.response) {
+                console.log("--------------------------------------------------")
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                if(error.response.status === 422){
+                    
+                }
+                console.log(error.response.headers);
+            } else if (error.request) {
+                console.log("*************************")
+
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+            } else {
+                console.log("++++++++++++++++++++++++")
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        })
         setTerdaftar(true)
     };
     return (

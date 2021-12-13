@@ -70,14 +70,19 @@ function Profile() {
     }
 
     const updateUser = () =>{
-        // const URLUpdate = `http://47.254.198.205/api/users`
+        const URLUpdate = `http://47.254.198.205/api/users/update`
         const getData = async () => {
             console.log("token sasasa",token)
-            Axios.post(URL, { 
-                headers: {"Authorization" : `Bearer ${token}`}, 
-                // _method:"PATCH"
-                name:profile.name, email:profile.email, phone_number:profile.phone_number , password:password, _method:"PUT"
-            })
+            Axios.post(URLUpdate,
+                {
+                    name:profile.name, 
+                    email:profile.email, 
+                    phone_number:profile.phone_number , 
+                    password:password
+                },
+                { 
+                    headers: {"Authorization" : `Bearer ${token}`}, 
+                })
             .then(res => {
             console.log(res);
             
