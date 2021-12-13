@@ -29,7 +29,7 @@ function ListWebinar() {
     const [urutbar, setUrutbar] = useState(false);
     const [data, setData] = useState([]);
 
-    const URL = "http://47.254.198.205/api/webinars?sort=-id&append=status,extra_small_image"
+    const URL = "http://47.254.198.205/api/webinars?sort=-id&append=status,large_image"
     useEffect(() =>  {
         if(filter.kategori === "" && filter.urut === "" && filter.partner === "" && filter.status === "" && filter.tipe === ""){
             const getData = async () => {
@@ -43,7 +43,7 @@ function ListWebinar() {
     },[filter.kategori, filter.urut, filter.partner, filter.status, filter.tipe]);
 
     
-    const URLTipe = "http://47.254.198.205/api/webinars?filter[type]="+filter.tipe+"&append=extra_small_image"
+    const URLTipe = "http://47.254.198.205/api/webinars?filter[type]="+filter.tipe+"&append=large_image"
     useEffect(() =>  {
         const getData = async () => {
             const res = await Axios.get(URLTipe)
@@ -296,7 +296,8 @@ function ListWebinar() {
                                 end_at={item.end_at}
                                 category_id={item.category_id}
                                 status={item.status}
-                                image={item.extra_small_image}
+                                image={item.large_image}
+                                brief_description={item.brief_description}
                             />
                         ))
                         :

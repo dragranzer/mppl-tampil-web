@@ -4,7 +4,7 @@ import styles from '../assets/css/Webinar.module.css';
 import {useHistory} from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 
-const Webinar = ({id,title, type, price, participants, start_at, end_at, category_id, status, image}) => {
+const Webinar = ({id,title, type, price, participants, start_at, end_at, category_id, status, image, brief_description}) => {
     // console.log(title)
     let history = useHistory();
     const [kategori, setKategori] = useState([]);
@@ -28,7 +28,7 @@ const Webinar = ({id,title, type, price, participants, start_at, end_at, categor
                 <div className={styles.title}>
                     {title}
                 </div>
-                <div>
+                {/* <div>
                     Type : {type}
                 </div>
                 <div>
@@ -44,8 +44,10 @@ const Webinar = ({id,title, type, price, participants, start_at, end_at, categor
                         // console.log("gane,u")
                         // kategori.data.data[0].name
                     }
+                </div> */}
+                <div className={styles.description}>
+                    {brief_description}
                 </div>
-                
                 
                 {/* <div>
                     End At : {end_at}

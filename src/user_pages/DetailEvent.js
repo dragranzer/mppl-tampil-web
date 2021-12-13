@@ -164,7 +164,8 @@ function DetailEvent() {
                             </div>
                             <div className={styles.detailInfo}>
                                 <div className={styles.itemInfo}>
-                                    <p>Tipe Event</p>
+                                    <FaIcons.FaShieldAlt size={14}/>
+                                    <span> Tipe Event</span>
                                     {
                                         webinar ?
                                         <div>{webinar.data.data.type}</div>
@@ -172,17 +173,10 @@ function DetailEvent() {
                                         <></>
                                     }
                                 </div>
+                                
                                 <div className={styles.itemInfo}>
-                                    <p>Tipe Event</p>
-                                    {
-                                        webinar ?
-                                        <div>{webinar.data.data.type}</div>
-                                        :
-                                        <></>
-                                    }
-                                </div>
-                                <div className={styles.itemInfo}>
-                                    <p>Partner Event</p>
+                                    <FaIcons.FaUserFriends size={18}/>
+                                    <span> Partner Event</span>
                                     {
                                         webinar ?
                                         <div>{webinar.data.data.partner}</div>
@@ -191,7 +185,8 @@ function DetailEvent() {
                                     }
                                 </div>
                                 <div className={styles.itemInfo}>
-                                    <p>Mulai Event</p>
+                                    <FaIcons.FaCalendarAlt size={14}/>
+                                    <span> Mulai Event</span>
                                     {
                                         webinar ?
                                         <div>{webinar.data.data.start_at}</div>
@@ -200,7 +195,8 @@ function DetailEvent() {
                                     }
                                 </div>
                                 <div className={styles.itemInfo}>
-                                    <p>Selesai Event</p>
+                                    <FaIcons.FaCalendarAlt size={14}/>
+                                    <span> Selesai Event</span>
                                     {
                                         webinar ?
                                         <div>{webinar.data.data.end_at}</div>
@@ -209,28 +205,31 @@ function DetailEvent() {
                                     }
                                 </div>
                                 <div className={styles.itemInfo}>
-                                    <p>Harga Event</p>
+                                    <FaIcons.FaMoneyBillWave size={16}/>
+                                    <span> Harga Event</span>
                                     {
                                         webinar ?
-                                        <div>{webinar.data.data.price}</div>
+                                        <div>Rp.{webinar.data.data.price}</div>
                                         :
                                         <></>
                                     }
                                 </div>
                                 <div className={styles.itemInfo}>
-                                    <p>Kuota Event</p>
+                                    <FaIcons.FaUserAlt size={14}/> 
+                                    <span> Kuota Event</span>
                                     {
                                         webinar ?
-                                        <div>{webinar.data.data.max_participants}</div>
+                                        <div>{webinar.data.data.max_participants} Orang</div>
                                         :
                                         <></>
                                     }
                                 </div>
                                 <div className={styles.itemInfo}>
-                                    <p>Pendaftar Event</p>
+                                    <FaIcons.FaUserAlt size={14}/> 
+                                    <span> Pendaftar Event</span>
                                     {
                                         webinar ?
-                                        <div>{webinar.data.data.participants}</div>
+                                        <div>{webinar.data.data.participants} Orang</div>
                                         :
                                         <></>
                                     }
