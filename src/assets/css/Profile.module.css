@@ -67,16 +67,17 @@
 }
 
 .validation{
-    width: 90%;
+    width: 80%;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
+    margin: auto;
     gap: 5%;
     /* background-color: aqua; */
 }
 
 .submitBtn{
-    width: 15%;
+    width: 50%;
     height: 35px;
     background: #0078E7;
     border-radius: 50px;
@@ -105,4 +106,28 @@
     align-items: center;
     margin-bottom: 3%;
     
+}
+
+.leftBtn{
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aquamarine; */
+}
+
+.logout{
+    background-color: #E14E53;
+    color: white;
+    border-radius: 20px;
+    height: 35px;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.logout:hover{
+    background-color: #eb7d80;
 }

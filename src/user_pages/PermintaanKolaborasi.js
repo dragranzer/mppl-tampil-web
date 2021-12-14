@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../assets/css/PermintaanKolaborasi.module.css';
-import { useDropzone } from "react-dropzone"
+import { useDropzone } from "react-dropzone";
+import {useHistory} from "react-router-dom";
+import swal from 'sweetalert';
+import { useSelector, useDispatch } from 'react-redux';
 
 function PermintaanKolaborasi() {
+    let history = useHistory();
+    const token = useSelector((state) => state.token.token)
     const [files, setFiles] = useState([])
     const [data, setData] = useState({
         judul: "",
@@ -48,7 +53,14 @@ function PermintaanKolaborasi() {
         </div>
     ))
     console.log(files.length)
-    
+    if(!token){
+        history.push("/");
+        swal({
+            title: "Error",
+            text: "Mohon Login Terlebih Dahulu",
+            icon: "error",
+        });
+    }
     return (
         <div>
             <Navbar />

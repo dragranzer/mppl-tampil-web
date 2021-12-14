@@ -6,8 +6,11 @@ import * as FaIcons from "react-icons/fa";
 import styles from '../assets/css/EventSaya.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import WebinarSaya from '../components/WebinarSaya';
+import {useHistory} from "react-router-dom";
+import swal from 'sweetalert';
 
 function EventSaya() {
+    let history = useHistory();
     const token = useSelector((state) => state.token.token)
     console.log(token)
     const [webinar, setWebinar] = useState();
@@ -31,6 +34,14 @@ function EventSaya() {
                         // that falls out of the range of 2xx
                         console.log(error.response.data);
                         console.log(error.response.status);
+                        if(error.response.status === 401){
+                            history.push("/");
+                            swal({
+                                title: "Error",
+                                text: "Mohon Login Terlebih Dahulu",
+                                icon: "error",
+                            });
+                        }
                         console.log(error.response.headers);
                     } else if (error.request) {
                         console.log("*************************")
@@ -52,6 +63,14 @@ function EventSaya() {
         }
     },[]);
     console.log(webinar)
+    if(!token){
+        history.push("/");
+        swal({
+            title: "Error",
+            text: "Mohon Login Terlebih Dahulu",
+            icon: "error",
+        });
+    }
     return (
         <div>
             <Navbar />

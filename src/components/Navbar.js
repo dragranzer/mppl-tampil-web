@@ -27,7 +27,7 @@ function Navbar() {
                
             </div>
             <div className={styles.method}>
-                <div className={styles.item} onClick={handleCari}>Cari Webinar</div>
+                <div className={styles.search} onClick={handleCari}>Cari Webinar</div>
                 <div className={styles.akun} onClick={handleProf}>Akun</div>
             </div>
         </div>

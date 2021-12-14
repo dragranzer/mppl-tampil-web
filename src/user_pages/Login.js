@@ -11,7 +11,7 @@ import { login } from '../store/TokenSlice';
 
 function Login() {
     let history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     // const [Data, setData] = useState();
     const [user, setUser] = useState({
         name: "",
@@ -51,7 +51,7 @@ function Login() {
         .then(res => {
         //   console.log(res);
           console.log(res.data.data.token);
-          dispatch(login(res.data.data.token))
+          dispatch(login(res.data.data.token));
           if(res.data["data"].token){
               console.log("berhasil")
               isTrue = true;
@@ -85,6 +85,11 @@ function Login() {
             console.log()
             // dispatch(login(res))
             history.push("/home");
+            swal({
+                title: "Success",
+                text: "Login Berhasil",
+                icon: "success",
+            });
         }else{
             return swal({
                 title: "Error",

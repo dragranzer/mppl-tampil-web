@@ -16,6 +16,10 @@
     /* margin-left: auto; */
 }
 
+.redirect p:hover{
+    color: #4898e4;
+}
+
 .socmed{
     display: flex;
     flex-direction: row;

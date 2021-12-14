@@ -83,9 +83,21 @@ p {
     color: #0078E7;
 }
 
+.signup p:hover{
+    color: #4898e4;
+}
+
 .admin{
     margin-top: 20px;
     color: #E14E53;
     font-weight: bold;
     text-align: center;
+}
+
+.admin:hover{
+    color: #db8285;
+}
+
+.akun:hover{
+    background: #4291db;
 }

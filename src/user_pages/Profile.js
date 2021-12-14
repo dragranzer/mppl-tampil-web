@@ -7,12 +7,17 @@ import profilePic from '../assets/img/blank-prof.jpg';
 import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
 import {useHistory} from "react-router-dom";
+import { logout } from '../store/TokenSlice';
+import swal from 'sweetalert';
 
 function Profile() {
     let history = useHistory();
+    const dispatch = useDispatch();
     const token = useSelector((state) => state.token.token)
+    
     const [profile, setProfile] = useState();
     const [password, setPassword] = useState();
+    
     // console.log(token)
     const URL = `http://47.254.198.205/api/users?append=large_image`
     useEffect(() =>  {
@@ -34,6 +39,14 @@ function Profile() {
                         // that falls out of the range of 2xx
                         console.log(error.response.data);
                         console.log(error.response.status);
+                        if(error.response.status === 401){
+                            history.push("/");
+                            swal({
+                                title: "Error",
+                                text: "Mohon Login Terlebih Dahulu",
+                                icon: "error",
+                            });
+                        }
                         console.log(error.response.headers);
                     } else if (error.request) {
                         console.log("*************************")
@@ -55,6 +68,14 @@ function Profile() {
         }
     },[]);
     console.log(profile)
+    if(!token){
+        history.push("/");
+        swal({
+            title: "Error",
+            text: "Mohon Login Terlebih Dahulu",
+            icon: "error",
+        });
+    }
 
     const onChange = (e) =>{
         const name = e.target.name;
@@ -122,6 +143,15 @@ function Profile() {
         console.log(profile)
     }
     
+    const logOut = () =>{
+        dispatch(logout());
+        history.push("/");
+        swal({
+            title: "Success",
+            text: "LogOut Berhasil",
+            icon: "success",
+        });
+    }
     
     return (
         <div>
@@ -168,11 +198,16 @@ function Profile() {
                         
                     </div>
                     <div className={styles.validation}>
-                        <div className={styles.back} onClick={() => history.goBack()}>
-                            Kembali
+                        <div className={styles.logout} onClick={logOut}>
+                            Log Out
                         </div>
-                        <div className={styles.submitBtn} onClick={updateUser}>
-                            Ubah
+                        <div className={styles.leftBtn}>
+                            <div className={styles.back} onClick={() => history.goBack()}>
+                                Kembali
+                            </div>
+                            <div className={styles.submitBtn} onClick={updateUser}>
+                                Ubah
+                            </div>
                         </div>
                     </div>
                     

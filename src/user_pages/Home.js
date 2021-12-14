@@ -4,8 +4,15 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import sideImg from '../assets/img/hero-fix.png';
 import * as FaIcons from "react-icons/fa";
+import {useHistory} from "react-router-dom";
+
 
 function Home() {
+    let history = useHistory();
+    const cariWeb = () =>{
+        history.push(`/events`);
+    }
+
     return (
         <div>
             <Navbar />
@@ -19,7 +26,7 @@ function Home() {
                             Anda juga dapat membuat event yang dipromosikan 
                             melalui Tampil.
                         </p>
-                        <div className={styles.searchBtn}>
+                        <div className={styles.searchBtn} onClick={cariWeb}>
                             cari webinar
                         </div>
                         <p className={styles.atau}>Atau</p>
