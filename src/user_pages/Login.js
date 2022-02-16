@@ -41,45 +41,45 @@ function Login() {
     
     const handleSubmit = async (e) => {
         console.log(user);
-        let isTrue = false;
-        const URL = `http://47.254.198.205/api/users/login`
-        await Axios.post(URL, 
-            {   
-                email:user.name, 
-                password: user.password,
-            })
-        .then(res => {
-        //   console.log(res);
-          console.log(res.data.data.token);
-          dispatch(login(res.data.data.token));
-          if(res.data["data"].token){
-              console.log("berhasil")
-              isTrue = true;
-          }
-        }).catch(error => {
-            // this.setError()
-            console.log(error)
-            if (error.response) {
-                console.log("--------------------------------------------------")
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            } else if (error.request) {
-                console.log("*************************")
+        let isTrue = true;
+//         const URL = `http://47.254.198.205/api/users/login`
+//         await Axios.post(URL, 
+//             {   
+//                 email:user.name, 
+//                 password: user.password,
+//             })
+//         .then(res => {
+//         //   console.log(res);
+//           console.log(res.data.data.token);
+//           dispatch(login(res.data.data.token));
+//           if(res.data["data"].token){
+//               console.log("berhasil")
+//               isTrue = true;
+//           }
+//         }).catch(error => {
+//             // this.setError()
+//             console.log(error)
+//             if (error.response) {
+//                 console.log("--------------------------------------------------")
+//                 // The request was made and the server responded with a status code
+//                 // that falls out of the range of 2xx
+//                 console.log(error.response.data);
+//                 console.log(error.response.status);
+//                 console.log(error.response.headers);
+//             } else if (error.request) {
+//                 console.log("*************************")
 
-                // The request was made but no response was received
-                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                // http.ClientRequest in node.js
-                console.log(error.request);
-            } else {
-                console.log("++++++++++++++++++++++++")
-                // Something happened in setting up the request that triggered an Error
-                console.log('Error', error.message);
-            }
-            console.log(error.config);
-        })
+//                 // The request was made but no response was received
+//                 // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+//                 // http.ClientRequest in node.js
+//                 console.log(error.request);
+//             } else {
+//                 console.log("++++++++++++++++++++++++")
+//                 // Something happened in setting up the request that triggered an Error
+//                 console.log('Error', error.message);
+//             }
+//             console.log(error.config);
+//         })
 
         if(isTrue){
             console.log()
