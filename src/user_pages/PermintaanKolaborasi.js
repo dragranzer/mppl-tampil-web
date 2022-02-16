@@ -53,14 +53,14 @@ function PermintaanKolaborasi() {
         </div>
     ))
     console.log(files.length)
-    if(!token){
-        history.push("/");
-        swal({
-            title: "Error",
-            text: "Mohon Login Terlebih Dahulu",
-            icon: "error",
-        });
-    }
+//     if(!token){
+//         history.push("/");
+//         swal({
+//             title: "Error",
+//             text: "Mohon Login Terlebih Dahulu",
+//             icon: "error",
+//         });
+//     }
     return (
         <div>
             <Navbar />
